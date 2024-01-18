@@ -81,6 +81,15 @@ public class BoardContrller {
 		redirectAttributes.addAttribute("no", dto.getNo());
 
 		// 상세화면으로 리다이렉트
-		return "redirect:/board/read";
+		return "redirect:/board/read";  //수정처리와 동시에 상세페이지로 돌아감
+	}
+
+	// 삭제처리
+	@PostMapping("/remove")
+	public String removePost(@RequestParam(name = "no") int no) {
+
+		service.remove(no);
+
+		return "redirect:/board/list";  //삭제처리와 동시에 리스트로 돌아감
 	}
 }

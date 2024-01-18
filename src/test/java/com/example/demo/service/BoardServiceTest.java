@@ -32,24 +32,26 @@ public class BoardServiceTest {
 			System.out.println(boardDTO);
 		}
 	}
-	
+
 	@Test
 	public void 게시물단건조회() {
-		
+
 		BoardDTO dto = service.read(5);
 		System.out.println(dto);
 	}
-	
+
 	@Test
 	public void 게시물수정() {
-		
+
 		BoardDTO dto = service.read(5);
 		dto.setContent("내용수정확인");
 		service.modify(dto);
-		
-		
-		
-		
+	}
+
+	@Test
+	public void 게시물삭제() {
+		int result = service.remove(3);
+		System.out.println(result);
 	}
 
 }

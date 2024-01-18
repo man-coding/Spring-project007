@@ -41,10 +41,4 @@ public class BoardRepositoryTest {
 
 	}
 
-	@Test
-	void 게시물삭제() {
-
-		repository.deleteById(1);
-
-	}
 }

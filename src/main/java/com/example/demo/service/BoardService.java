@@ -18,6 +18,9 @@ public interface BoardService {
 	
 	// 게시물 수정
 		void modify(BoardDTO dto);
+		
+	// 게시물 삭제
+		int remove(int no);
 
 	// dto를 엔티티로 변환하는 메소드
 	default Board dtoToEntity(BoardDTO dto) {

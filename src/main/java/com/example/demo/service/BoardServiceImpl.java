@@ -47,10 +47,10 @@ public class BoardServiceImpl implements BoardService {
 		// 리스트에서 스트림 생성
 		list = result.stream().map(entity -> entityToDto(entity)).collect(Collectors.toList());
 
-		return list; // dto 리스트 반환
+		return list; // dto 리스트 반환t
 	}
 
-	@Override
+	@Override   //조회
 	public BoardDTO read(int no) {
 
 		Optional<Board> result = repository.findById(no);
@@ -80,6 +80,18 @@ public class BoardServiceImpl implements BoardService {
 
 			// 다시 저장
 			repository.save(entity);
+		}
+	}
+
+	@Override
+	public int remove(int no) {
+		Optional<Board> result = repository.findById(no);
+		if (result.isPresent()) {
+			repository.deleteById(no);
+
+			return 1;   //성공
+		} else {
+			return 0;   //실패
 		}
 	}
 
